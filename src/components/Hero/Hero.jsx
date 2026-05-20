@@ -1,6 +1,7 @@
 import Container from '../layout/Container';
 import Button from '../ui/Button';
 import { site } from '../../data/site';
+import HeroBlob from './HeroBlob';
 
 export default function Hero() {
   const { hero } = site;
@@ -9,7 +10,7 @@ export default function Hero() {
     <section
       id="hero"
       aria-labelledby="hero-heading"
-      className="bg-white py-12 md:py-16 lg:py-20"
+      className="bg-white py-4 md:py-8 lg:py-12"
     >
       <Container>
         <div className="flex flex-col items-center gap-10 lg:flex-row lg:items-center lg:gap-16">
@@ -41,9 +42,9 @@ export default function Hero() {
               </Button>
             </div>
           </div>
-
           <div className="relative mx-auto w-full max-w-md flex-shrink-0 lg:mx-0 lg:max-w-none lg:flex-1">
             <div className="relative mx-auto aspect-[396/496] w-full max-w-[396px]">
+              <HeroBlob />
               <img
                 src={'/assets/images/hero.png'}
                 alt="Madelyn Torff, UI/UX designer, smiling with a yellow flower"
