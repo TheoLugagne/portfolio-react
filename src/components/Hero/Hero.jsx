@@ -1,7 +1,5 @@
-import Container from '../layout/Container';
 import Button from '../ui/Button';
 import { site } from '../../data/site';
-import HeroBlob from './HeroBlob';
 
 export default function Hero() {
   const { hero } = site;
@@ -10,11 +8,12 @@ export default function Hero() {
     <section
       id="hero"
       aria-labelledby="hero-heading"
-      className="bg-white py-4 md:py-8 lg:py-12"
+      className="relative overflow-hidden bg-white"
     >
-      <Container>
-        <div className="flex flex-col items-center gap-10 lg:flex-row lg:items-center lg:gap-16">
-          <div className="w-full max-w-xl lg:flex-1">
+
+      <div className="relative flex flex-col lg:min-h-screen lg:flex-row">
+        <div className="flex w-full items-center justify-center px-6 pb-10 sm:px-10 md:px-12 lg:w-1/2 lg:px-16 lg:pb-12 xl:px-20">
+          <div className="w-full max-w-md">
             <span
               aria-hidden="true"
               className="mb-4 block h-1 w-12 bg-primary"
@@ -30,7 +29,7 @@ export default function Hero() {
               <br />
               {hero.name}
             </h1>
-            <p className="mt-6 max-w-lg font-sans text-base leading-relaxed text-muted">
+            <p className="mt-6 font-sans text-base leading-relaxed text-muted">
               {hero.description}
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
@@ -42,21 +41,17 @@ export default function Hero() {
               </Button>
             </div>
           </div>
-          <div className="relative mx-auto w-full max-w-md flex-shrink-0 lg:mx-0 lg:max-w-none lg:flex-1">
-            <div className="relative mx-auto aspect-[396/496] w-full max-w-[396px]">
-              <HeroBlob />
-              <img
-                src={'/assets/images/hero.png'}
-                alt="Madelyn Torff, UI/UX designer, smiling with a yellow flower"
-                width={396}
-                height={496}
-                loading="eager"
-                className="relative z-10 h-full w-full object-contain object-bottom"
-              />
-            </div>
-          </div>
         </div>
-      </Container>
+
+        <div className="flex w-full items-start lg:w-1/2 lg:pt-6">
+          <img
+            src="/assets/images/hero.png"
+            alt="Madelyn Torff, UI/UX designer, smiling with a yellow flower"
+            loading="eager"
+            className="h-auto w-full object-contain object-top object-right"
+          />
+        </div>
+      </div>
     </section>
   );
 }

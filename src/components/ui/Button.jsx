@@ -12,10 +12,19 @@ export default function Button({
   variant = 'primary',
   children,
   className = '',
+  href,
   type = 'button',
   ...rest
 }) {
   const classes = `${baseStyles} ${variantStyles[variant] ?? variantStyles.primary}${className ? ` ${className}` : ''}`;
+
+  if (href) {
+    return (
+      <a href={href} className={classes} {...rest}>
+        {children}
+      </a>
+    );
+  }
 
   return (
     <button type={type} className={classes} {...rest}>

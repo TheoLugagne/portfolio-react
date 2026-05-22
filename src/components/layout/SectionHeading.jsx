@@ -1,4 +1,4 @@
-export default function Header({ children, className = '', id }) {
+export default function SectionHeading({ children, className = '', id }) {
   return (
     <header className={`text-center${className ? ` ${className}` : ''}`}>
       <h2
@@ -9,7 +9,7 @@ export default function Header({ children, className = '', id }) {
       </h2>
       <span
         aria-hidden="true"
-        className="mx-auto mt-2 block h-1 w-32 bg-primary"
+        className="mx-auto mt-2 block h-1 w-12 bg-primary"
       />
     </header>
   );

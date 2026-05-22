@@ -1,7 +1,8 @@
-import Navbar from './Navbar/Navbar';
-import Hero  from './Hero/Hero';
+import Hero from './Hero/Hero';
+import Projects from './Projects/Projects';
 import Button from './ui/Button';
 import Container from './layout/Container';
-import SectionHeading from './layout/Header';
+import SectionHeading from './layout/SectionHeading';
+import Navbar from './Navbar/Navbar';
 
-export { Navbar, Hero, Button, Container, SectionHeading };
+export { Hero, Projects, Button, Container, SectionHeading, Navbar };
