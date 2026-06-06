@@ -11,8 +11,8 @@ export default function Hero() {
       className="relative overflow-hidden bg-white"
     >
 
-      <div className="relative flex flex-col lg:min-h-screen lg:flex-row">
-        <div className="flex w-full items-center justify-center px-6 pb-10 sm:px-10 md:px-12 lg:w-1/2 lg:px-16 lg:pb-12 xl:px-20">
+      <div className="relative flex flex-col lg:min-h-screen">
+        <div className="relative z-10 flex w-full items-center justify-center px-6 pb-10 sm:px-10 md:px-12 lg:min-h-screen lg:w-1/2 lg:px-16 lg:pb-12 xl:px-20">
           <div className="w-full max-w-md">
             <span
               aria-hidden="true"
@@ -43,12 +43,12 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="flex w-full items-start lg:w-1/2 lg:pt-6">
+        <div className="w-full lg:pointer-events-none lg:absolute lg:right-0 lg:top-0 lg:z-0 lg:w-1/2">
           <img
             src="/assets/images/hero.png"
             alt="Madelyn Torff, UI/UX designer, smiling with a yellow flower"
             loading="eager"
-            className="h-auto w-full object-contain object-top object-right"
+            className="ml-auto block h-auto w-full max-w-none object-contain object-right-top"
           />
         </div>
       </div>
