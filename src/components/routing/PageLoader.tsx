@@ -6,7 +6,7 @@ export default function PageLoader() {
     <div
       role="status"
       aria-label="Loading page"
-      className="min-h-screen bg-white py-24"
+      className="min-h-screen animate-fade-in bg-white py-24"
     >
       <Container>
         <div className="mx-auto max-w-2xl space-y-6">

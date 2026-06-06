@@ -1,5 +1,9 @@
 export const site = {
   name: 'Theo Lugagne',
+  tagline: 'Full Stack Developer',
+  title: 'Theo Lugagne — Portfolio',
+  description:
+    'Portfolio of Theo Lugagne, Full Stack Developer. Projects, contact, and more.',
   navLinks: [
     { label: 'Projects', href: '/#projects' },
     { label: 'Contacts', href: '/contact' },

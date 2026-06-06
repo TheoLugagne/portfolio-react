@@ -1,30 +1,33 @@
-import Button from '../ui/Button';
+import { Link } from 'react-router-dom';
+import type { Project } from '../../types';
+import { resolveImageUrl } from '../../utils/imageUrl';
 
 const CARD_MAX_WIDTH = 992;
 const CARD_MAX_HEIGHT = 524;
 
+const outlineButtonClasses =
+  'inline-flex items-center justify-center rounded-lg border-2 border-dark bg-transparent px-8 py-3 font-sans text-base font-semibold text-dark transition-colors hover:bg-dark/5 active:bg-dark/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2';
+
 interface ProjectCardProps {
-  title: string;
-  description: string;
-  image: string;
-  url: string;
+  project: Project;
   reversed?: boolean;
   maxWidth?: number;
   maxHeight?: number;
+  preview?: boolean;
 }
 
 export default function ProjectCard({
-  title,
-  description,
-  image,
-  url,
+  project,
   reversed = false,
   maxWidth = CARD_MAX_WIDTH,
   maxHeight = CARD_MAX_HEIGHT,
+  preview = false,
 }: ProjectCardProps) {
   const imageRoundedClasses = reversed
     ? 'rounded-t-card md:rounded-l-card md:rounded-tr-none'
     : 'rounded-t-card md:rounded-r-card md:rounded-tl-none';
+
+  const imageUrl = resolveImageUrl(project.imagePath);
 
   return (
     <article
@@ -34,20 +37,31 @@ export default function ProjectCard({
       }`}
     >
       <div className="flex min-h-0 flex-1 flex-col justify-center gap-4 overflow-hidden p-6 md:w-1/2 md:gap-6 md:p-8">
-        <h3 className="font-serif text-2xl text-dark md:text-3xl">{title}</h3>
+        <h3 className="font-serif text-2xl text-dark md:text-3xl">
+          {project.title}
+        </h3>
         <p className="line-clamp-4 font-sans text-base leading-relaxed text-muted md:line-clamp-5">
-          {description}
+          {project.description}
         </p>
         <div className="flex-shrink-0">
-          <Button variant="outline" href={url}>
-            View Project
-          </Button>
+          {preview ? (
+            <span className={`${outlineButtonClasses} cursor-default opacity-70`}>
+              View Project
+            </span>
+          ) : (
+            <Link
+              to={`/projects/${project.id}`}
+              className={outlineButtonClasses}
+            >
+              View Project
+            </Link>
+          )}
         </div>
       </div>
       <div className="h-[200px] flex-shrink-0 md:h-full md:w-1/2">
         <img
-          src={image}
-          alt={`Screenshot of ${title}`}
+          src={imageUrl}
+          alt={`Screenshot of ${project.title}`}
           loading="lazy"
           className={`h-full w-full object-cover ${imageRoundedClasses}`}
         />
