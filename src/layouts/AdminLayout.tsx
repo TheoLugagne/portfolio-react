@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
+import { site } from '../data/site';
 import { useAuth } from '../hooks/useAuth';
 import { useContacts } from '../hooks/useContacts';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
@@ -8,17 +9,17 @@ import ToastContainer from '../components/ui/Toast';
 import ConfirmModal from '../components/ui/ConfirmModal';
 
 const navItems: { label: string; to: string; showUnreadBadge?: boolean }[] = [
+  { label: 'Dashboard', to: '/admin/dashboard' },
   { label: 'Projects', to: '/admin/projects' },
   { label: 'Contacts', to: '/admin/contacts', showUnreadBadge: true },
   { label: 'Testimonials', to: '/admin/testimonials' },
-  { label: 'Stats', to: '/admin/stats' },
 ];
 
 const pageTitles: Record<string, string> = {
+  '/admin/dashboard': 'Dashboard',
   '/admin/projects': 'Projects',
   '/admin/contacts': 'Contacts',
   '/admin/testimonials': 'Testimonials',
-  '/admin/stats': 'Statistics',
 };
 
 export default function AdminLayout() {
@@ -43,11 +44,23 @@ export default function AdminLayout() {
       <aside className="flex w-56 flex-shrink-0 flex-col border-r border-dark/10 bg-white">
         <div className="border-b border-dark/10 px-6 py-6">
           <p className="font-sans text-sm font-semibold text-muted">Admin</p>
-          <p className="font-serif text-lg text-dark">
+          <Link
+            to="/"
+            className="font-serif text-lg text-dark transition-colors hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+          >
+            {site.name}
+          </Link>
+          <p className="mt-1 font-sans text-sm text-muted">
             {user?.name ?? 'Dashboard'}
           </p>
         </div>
         <nav aria-label="Admin navigation" className="flex flex-1 flex-col gap-1 p-4">
+          <Link
+            to="/"
+            className="mb-2 flex items-center rounded-lg px-4 py-2 font-sans text-sm font-semibold text-muted transition-colors hover:bg-dark/5 hover:text-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+          >
+            View site
+          </Link>
           {navItems.map(({ label, to, showUnreadBadge }) => (
             <NavLink
               key={to}
@@ -82,8 +95,15 @@ export default function AdminLayout() {
       <div className="flex flex-1 flex-col">
         <header className="flex items-center justify-between border-b border-dark/10 bg-white px-8 py-4">
           <h1 className="font-serif text-2xl text-dark">{pageTitle}</h1>
-          {user && (
-            <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
+            <Link
+              to="/"
+              className="rounded-lg px-4 py-2 font-sans text-sm font-semibold text-dark transition-colors hover:bg-dark/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+            >
+              View site
+            </Link>
+            {user && (
+              <div className="flex items-center gap-3 border-l border-dark/10 pl-4">
               {user.avatarUrl && (
                 <img
                   src={user.avatarUrl}
@@ -97,8 +117,9 @@ export default function AdminLayout() {
                 </p>
                 <p className="font-sans text-xs text-muted">{user.email}</p>
               </div>
-            </div>
-          )}
+              </div>
+            )}
+          </div>
         </header>
         <main className="flex-1 p-8">
           <PageTransition />

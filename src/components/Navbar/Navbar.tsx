@@ -122,7 +122,7 @@ export default function Navbar() {
       .filter(Boolean)
       .join(' ');
 
-  const adminHref = isAuthenticated ? '/admin/projects' : '/login';
+  const adminHref = isAuthenticated ? '/admin/dashboard' : '/login';
   const adminLabel = isAuthenticated ? 'Admin' : 'Login';
 
   return (
@@ -228,7 +228,7 @@ export default function Navbar() {
 
           <Link
             to={adminHref}
-            className={navButtonClassName(pathname === adminHref)}
+            className={navButtonClassName(pathname.startsWith('/admin'))}
             onClick={closeMenu}
           >
             {adminLabel}

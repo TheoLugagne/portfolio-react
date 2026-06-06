@@ -15,7 +15,7 @@ export default function LoginPage() {
 
   useEffect(() => {
     if (state.status === 'authenticated') {
-      navigate('/admin/projects', { replace: true });
+      navigate('/admin/dashboard', { replace: true });
     }
   }, [state.status, navigate]);
 
@@ -29,7 +29,7 @@ export default function LoginPage() {
 
     try {
       await loginWithGoogle(response.credential);
-      navigate('/admin/projects', { replace: true });
+      navigate('/admin/dashboard', { replace: true });
     } catch {
       setErrorMessage(
         'Sign-in failed. Your Google account may not be authorized for admin access.'

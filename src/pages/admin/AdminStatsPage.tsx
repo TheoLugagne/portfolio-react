@@ -62,7 +62,7 @@ export default function AdminStatsPage() {
   return (
     <div>
       <div className="mb-6">
-        <h2 className="font-serif text-2xl text-dark">Statistics</h2>
+        <h2 className="font-serif text-2xl text-dark">Dashboard</h2>
         <p className="mt-1 font-sans text-sm text-muted">
           Dashboard KPIs and analytics overview.
         </p>

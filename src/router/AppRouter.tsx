@@ -1,5 +1,5 @@
 import { lazy, Suspense, type ReactNode } from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 import PageLoader from '../components/routing/PageLoader';
 import ProtectedRoute from '../components/routing/ProtectedRoute';
 
@@ -52,6 +52,18 @@ const router = createBrowserRouter([
         element: withSuspense(<AdminLayout />),
         children: [
           {
+            path: 'admin',
+            element: <Navigate to="/admin/dashboard" replace />,
+          },
+          {
+            path: 'admin/dashboard',
+            element: withSuspense(<AdminStatsPage />),
+          },
+          {
+            path: 'admin/stats',
+            element: <Navigate to="/admin/dashboard" replace />,
+          },
+          {
             path: 'admin/projects',
             element: withSuspense(<AdminProjectsPage />),
           },
@@ -62,10 +74,6 @@ const router = createBrowserRouter([
           {
             path: 'admin/testimonials',
             element: withSuspense(<AdminTestimonialsPage />),
-          },
-          {
-            path: 'admin/stats',
-            element: withSuspense(<AdminStatsPage />),
           },
         ],
       },
