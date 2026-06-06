@@ -7,7 +7,7 @@ export default function ContactPage() {
   useDocumentTitle('Contact');
 
   return (
-    <section className="bg-surface py-16 md:py-24">
+    <section className="scroll-mt-24 bg-surface py-16 md:py-24">
       <Container>
         <SectionHeading className="mb-4">Contact</SectionHeading>
         <p className="mx-auto mb-10 max-w-lg text-center font-sans text-base text-muted">

@@ -11,7 +11,7 @@ export default function Projects() {
     <section
       id="projects"
       aria-labelledby="projects-heading"
-      className="bg-surface py-16 md:py-24"
+      className="scroll-mt-24 bg-surface py-16 md:py-24"
     >
       <Container>
         <SectionHeading id="projects-heading" className="mb-12 md:mb-16">

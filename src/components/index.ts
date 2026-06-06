@@ -1,4 +1,5 @@
 import Hero from './Hero/Hero';
+import About from './About/About';
 import Projects from './Projects/Projects';
 import Testimonials from './Testimonials/Testimonials';
 import ContactSection from './Contact/ContactSection';
@@ -9,6 +10,7 @@ import Navbar from './Navbar/Navbar';
 
 export {
   Hero,
+  About,
   Projects,
   Testimonials,
   ContactSection,

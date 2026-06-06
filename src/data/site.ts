@@ -5,9 +5,16 @@ export const site = {
   description:
     'Portfolio of Theo Lugagne, Full Stack Developer. Projects, contact, and more.',
   navLinks: [
-    { label: 'Projects', href: '/#projects' },
-    { label: 'Contacts', href: '/contact' },
+    { label: 'About', href: '/#about', sectionId: 'about' },
+    { label: 'Projects', href: '/#projects', sectionId: 'projects' },
+    { label: 'Testimonials', href: '/#testimonials', sectionId: 'testimonials' },
+    { label: 'Contact', href: '/contact' },
   ],
+  about: {
+    title: 'About',
+    description:
+      'Full Stack Developer passionate about building clean, performant web applications. I enjoy working across the stack — from designing intuitive interfaces to crafting robust APIs and databases.',
+  },
   hero: {
     role: 'Full Stack Developer',
     title: 'Hello, my name is',

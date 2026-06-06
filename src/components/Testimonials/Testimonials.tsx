@@ -76,7 +76,7 @@ export default function Testimonials() {
     <section
       id="testimonials"
       aria-labelledby="testimonials-heading"
-      className="bg-white py-16 md:py-24"
+      className="scroll-mt-24 bg-white py-16 md:py-24"
     >
       <Container>
         <SectionHeading id="testimonials-heading" className="mb-12 md:mb-16">
